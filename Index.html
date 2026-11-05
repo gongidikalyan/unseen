@@ -1,0 +1,688 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE UNSEEN ✨</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+ font-family:'DM Sans',sans-serif;
+ color:#292044;
+ min-height:100vh;
+ overflow-x:hidden;
+ background:linear-gradient(135deg,#fff0f5,#f0eaff,#e5f8ff,#fff2df);
+ background-size:300% 300%;
+ animation:bgMove 14s ease infinite;
+}
+
+@keyframes bgMove{
+ 0%,100%{background-position:0% 50%}
+ 50%{background-position:100% 50%}
+}
+
+#particles{
+ position:fixed;inset:0;
+ pointer-events:none;overflow:hidden;z-index:0;
+}
+
+.particle{
+ position:absolute;
+ bottom:-30px;
+ animation:floatUp linear infinite;
+ opacity:.6;
+}
+
+@keyframes floatUp{
+ to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+
+.container{
+ width:min(920px,92%);
+ margin:auto;
+ position:relative;
+ z-index:1;
+}
+
+header{
+ padding:25px 0;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ font-size:11px;
+ letter-spacing:2px;
+ font-weight:800;
+ color:#81758f;
+}
+
+.logo{
+ width:39px;height:39px;
+ display:grid;place-items:center;
+ border-radius:14px;
+ background:linear-gradient(135deg,#ff70a5,#9a72ff);
+ color:white;font-size:22px;
+ box-shadow:0 8px 25px #b58be877;
+}
+
+.brand{display:flex;align-items:center;gap:12px}
+
+.private{
+ padding:9px 15px;
+ border:1px solid #ffffff;
+ background:#ffffff88;
+ border-radius:30px;
+}
+
+.screen{
+ min-height:80vh;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ text-align:center;
+ padding:35px 0;
+}
+
+.eyebrow{
+ color:#a078a9;
+ font-size:10px;
+ font-weight:800;
+ letter-spacing:3px;
+}
+
+h1{
+ font:700 clamp(55px,11vw,105px)/1.1 'Playfair Display',serif;
+ letter-spacing:-4px;
+ margin:20px 0;
+}
+
+.gradient-text{
+ background:linear-gradient(90deg,#ff679c,#9870ff,#48bcd9);
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+.subtitle{
+ font-size:17px;
+ color:#7e758d;
+ line-height:1.8;
+}
+
+.orbit{
+ width:230px;height:230px;
+ margin:25px auto;
+ position:relative;
+ display:grid;
+ place-items:center;
+}
+
+.orbit:before,.orbit:after{
+ content:"";
+ position:absolute;
+ border:1px solid #d7a8e5;
+ border-radius:50%;
+ width:100%;height:48%;
+ transform:rotate(40deg);
+}
+
+.orbit:after{
+ transform:rotate(-40deg);
+ border-color:#f3a6c5;
+}
+
+.star{
+ width:85px;height:85px;
+ border-radius:28px;
+ display:grid;place-items:center;
+ font-size:42px;color:white;
+ background:linear-gradient(135deg,#ff80ae,#a17aff,#63cce2);
+ box-shadow:0 15px 40px #aa8be888;
+ animation:starPulse 3s infinite;
+}
+
+@keyframes starPulse{
+ 50%{transform:scale(1.1) rotate(8deg)}
+}
+
+.login-box{
+ width:min(440px,100%);
+ padding:25px;
+ border-radius:23px;
+ background:#ffffffb9;
+ border:1px solid white;
+ box-shadow:0 15px 50px #8067a522;
+ backdrop-filter:blur(15px);
+}
+
+.login-box label{
+ display:block;
+ text-align:left;
+ font-size:13px;
+ font-weight:700;
+ margin-bottom:12px;
+}
+
+.login-row{display:flex;gap:10px}
+
+input{
+ flex:1;min-width:0;
+ padding:15px;
+ border:1px solid #e9dcef;
+ border-radius:13px;
+ outline:none;
+ font-size:14px;
+}
+
+button{
+ border:0;
+ cursor:pointer;
+ font:inherit;
+ font-weight:800;
+}
+
+.primary{
+ padding:14px 20px;
+ border-radius:13px;
+ color:white;
+ background:linear-gradient(110deg,#ff75a5,#9a78ff);
+ box-shadow:0 8px 20px #b18bda55;
+ transition:.3s;
+}
+
+.primary:hover{transform:translateY(-3px);box-shadow:0 12px 25px #b18bda77}
+
+#error{
+ color:#df4779;
+ font-size:12px;
+ text-align:left;
+ margin-top:10px;
+ min-height:15px;
+}
+
+footer{
+ margin-top:28px;
+ color:#a79bad;
+ font-size:9px;
+ letter-spacing:2px;
+ font-weight:800;
+}
+
+.hidden{display:none!important}
+
+/* CLUE PAGE */
+
+.content{padding:35px 0 55px}
+
+.heading{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:15px;
+}
+
+h2{
+ font:600 clamp(35px,6vw,55px) 'Playfair Display',serif;
+ margin:12px 0;
+}
+
+.date{
+ background:linear-gradient(140deg,#ff8caf,#9e80ff);
+ color:white;
+ padding:15px;
+ border-radius:20px;
+ font:700 27px 'Playfair Display',serif;
+ text-align:center;
+ min-width:70px;
+ box-shadow:0 10px 25px #bb8cce66;
+}
+
+.date small{
+ display:block;
+ font:800 10px 'DM Sans';
+ letter-spacing:2px;
+}
+
+.progress{
+ margin:30px 0 20px;
+ text-align:left;
+}
+
+.progress-label{
+ display:flex;
+ justify-content:space-between;
+ color:#887b9b;
+ font-size:10px;
+ font-weight:800;
+ letter-spacing:1.5px;
+ margin-bottom:10px;
+}
+
+.track{
+ height:9px;
+ background:#e5dcef;
+ border-radius:20px;
+ overflow:hidden;
+}
+
+.bar{
+ height:100%;
+ width:0;
+ background:linear-gradient(90deg,#ff78a5,#a17aff,#5dcbe1);
+ transition:width .5s;
+}
+
+.clue-grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:16px;
+}
+
+.clue{
+ padding:22px;
+ min-height:155px;
+ border-radius:20px;
+ background:#ffffffc9;
+ border:1px solid white;
+ box-shadow:0 10px 30px #79638a13;
+ text-align:left;
+ position:relative;
+ overflow:hidden;
+ animation:appear .5s both;
+}
+
+.clue:after{
+ content:"✦";
+ position:absolute;
+ right:12px;top:5px;
+ font-size:65px;
+ opacity:.09;
+ color:var(--accent);
+}
+
+.clue-number{
+ font-size:10px;
+ font-weight:800;
+ letter-spacing:1.5px;
+ color:var(--accent);
+}
+
+.clue h3{
+ font:600 23px 'Playfair Display',serif;
+ margin:17px 0 8px;
+}
+
+.clue p{
+ color:#777087;
+ font-size:13px;
+ line-height:1.7;
+}
+
+@keyframes appear{
+ from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+.waiting{
+ margin-top:25px;
+ padding:30px;
+ border-radius:24px;
+ background:linear-gradient(120deg,#fff0f5,#f2eaff,#e8faff);
+ border:1px solid white;
+}
+
+.waiting h3{
+ font:600 25px 'Playfair Display',serif;
+ margin:12px 0;
+}
+
+.waiting p{
+ color:#7c738c;
+ line-height:1.7;
+ font-size:13px;
+}
+
+.countdown{
+ color:#9a70bf;
+ font-size:13px;
+ font-weight:800;
+ letter-spacing:1px;
+ margin-top:15px;
+}
+
+/* FINAL REVEAL */
+
+.reveal{
+ margin-top:25px;
+ padding:50px 25px;
+ border-radius:27px;
+ background:linear-gradient(135deg,#ffe9f2,#eee6ff,#e3faff);
+ border:1px solid white;
+ box-shadow:0 15px 50px #9675b322;
+}
+
+.reveal h2{
+ font-size:clamp(35px,7vw,55px);
+}
+
+.reveal p{
+ color:#777087;
+ line-height:1.9;
+ max-width:550px;
+ margin:15px auto;
+}
+
+.confetti{
+ font-size:35px;
+ letter-spacing:12px;
+ animation:starPulse 2s infinite;
+}
+
+@media(max-width:600px){
+ .clue-grid{grid-template-columns:1fr}
+ .login-row{flex-direction:column}
+ .heading h2{font-size:35px}
+ header{font-size:9px}
+ .content{padding-top:15px}
+}
+</style>
+</head>
+
+<body>
+
+<div id="particles"></div>
+
+<div class="container">
+
+<header>
+ <div class="brand">
+  <div class="logo">✦</div>
+  <span>THE UNSEEN EXPERIENCE</span>
+ </div>
+ <div class="private">PRIVATE EDITION</div>
+</header>
+
+<!-- PASSWORD SCREEN -->
+
+<section id="loginScreen" class="screen">
+
+ <div class="eyebrow">✧ SOMETHING UNEXPECTED AWAITS</div>
+
+ <h1>THE <span class="gradient-text">UNSEEN</span></h1>
+
+ <p class="subtitle">
+ Some things are better discovered,<br>
+ one step at a time.
+ </p>
+
+ <div class="orbit">
+  <div class="star">✦</div>
+ </div>
+
+ <div class="login-box">
+  <label>One little key opens this door.</label>
+  <div class="login-row">
+   <input id="password" type="password"
+    placeholder="Enter your secret key">
+   <button class="primary" onclick="unlock()">Unlock ↗</button>
+  </div>
+  <div id="error"></div>
+ </div>
+
+ <footer>MADE WITH A LITTLE MAGIC ♥</footer>
+
+</section>
+
+<!-- MAIN EXPERIENCE -->
+
+<section id="mainScreen" class="content hidden">
+
+ <div class="heading">
+  <div>
+   <div class="eyebrow">WELCOME TO YOUR LITTLE UNIVERSE</div>
+   <h2>The story unfolds<span class="gradient-text">.</span></h2>
+   <p class="subtitle">Every day brings a new piece of the mystery.</p>
+  </div>
+
+  <div class="date">14<small>NOV</small></div>
+ </div>
+
+ <div class="progress">
+  <div class="progress-label">
+   <span>YOUR DISCOVERY JOURNEY</span>
+   <span id="progressText">0 / 10</span>
+  </div>
+  <div class="track">
+   <div class="bar" id="progressBar"></div>
+  </div>
+ </div>
+
+ <div class="clue-grid" id="clues"></div>
+
+ <div class="waiting" id="waiting">
+  <div class="eyebrow">THE FINAL PAGE</div>
+  <h3>Not everything arrives at once.</h3>
+  <p>
+   The final piece is waiting for November 14.
+   Until then, let curiosity do its thing.
+  </p>
+  <div class="countdown" id="countdown"></div>
+ </div>
+
+ <div class="reveal hidden" id="reveal">
+  <div class="confetti">✷ ✦ ✷</div>
+  <div class="eyebrow">THE UNSEEN IS NOW SEEN</div>
+  <h2>A moment, just for you.</h2>
+  <p>
+   Some things were never meant to be explained in advance.
+   They were meant to be experienced.
+   <br><br>
+   Happy birthday! ❤️
+  </p>
+ </div>
+
+ <footer>A LITTLE MYSTERY, MADE WITH CARE ♥</footer>
+
+</section>
+
+</div>
+
+<script>
+
+// CHANGE THIS PASSWORD TO YOUR OWN
+const SECRET_PASSWORD = "CHANGE_THIS_PASSWORD";
+
+// 10 MYSTERY CLUES
+const clues = [
+ {
+  date:"2026-11-05",
+  title:"A beginning",
+  text:"Not every beginning announces itself. Some arrive quietly, disguised as an ordinary moment."
+ },
+ {
+  date:"2026-11-06",
+  title:"A question",
+  text:"What if the thing you are searching for has been waiting in plain sight?"
+ },
+ {
+  date:"2026-11-07",
+  title:"An interruption",
+  text:"A small interruption can sometimes become the most memorable part of a familiar day."
+ },
+ {
+  date:"2026-11-08",
+  title:"A pattern",
+  text:"Look closely. The pieces do not seem connected until you stop trying to force them together."
+ },
+ {
+  date:"2026-11-09",
+  title:"A possibility",
+  text:"Some possibilities feel impossible only because their timing has not arrived."
+ },
+ {
+  date:"2026-11-10",
+  title:"A pause",
+  text:"There is a difference between waiting for something and noticing what the waiting reveals."
+ },
+ {
+  date:"2026-11-11",
+  title:"A signal",
+  text:"The quietest signals are often understood by the people who are meant to notice them."
+ },
+ {
+  date:"2026-11-12",
+  title:"A shift",
+  text:"Soon, an ordinary date may not feel quite so ordinary."
+ },
+ {
+  date:"2026-11-13",
+  title:"Almost",
+  text:"You have reached the edge of the answer. The final step is not to guess, but to arrive."
+ },
+ {
+  date:"2026-11-14",
+  title:"The moment",
+  text:"Some things were never meant to be explained in advance. They were meant to be experienced."
+ }
+];
+
+const colors = [
+ "#ff719e","#9b79ff","#55bddd","#efa04d","#55b995",
+ "#dc7cba","#718bd5","#df8d62","#91a75a","#a17bd2"
+];
+
+function todayIndia(){
+ return new Intl.DateTimeFormat("en-CA",{
+  timeZone:"Asia/Kolkata",
+  year:"numeric",month:"2-digit",day:"2-digit"
+ }).format(new Date());
+}
+
+function unlock(){
+
+ const entered=document.getElementById("password").value;
+
+ if(entered!==SECRET_PASSWORD){
+  document.getElementById("error").textContent=
+   "That key doesn't seem right. Try again.";
+  return;
+ }
+
+ sessionStorage.setItem("unseenUnlocked","yes");
+ showExperience();
+}
+
+document.getElementById("password").addEventListener("keydown",e=>{
+ if(e.key==="Enter")unlock();
+});
+
+function showExperience(){
+
+ document.getElementById("loginScreen").classList.add("hidden");
+ document.getElementById("mainScreen").classList.remove("hidden");
+
+ const today=todayIndia();
+
+ const unlocked=clues.filter(c=>c.date<=today);
+
+ document.getElementById("progressText").textContent=
+ unlocked.length+" / "+clues.length;
+
+ document.getElementById("progressBar").style.width=
+ (unlocked.length/clues.length*100)+"%";
+
+ const grid=document.getElementById("clues");
+ grid.innerHTML="";
+
+ unlocked.forEach((clue,index)=>{
+
+  const card=document.createElement("div");
+  card.className="clue";
+  card.style.setProperty("--accent",colors[index]);
+
+  const number=document.createElement("div");
+  number.className="clue-number";
+  number.textContent="CHAPTER "+String(index+1).padStart(2,"0");
+
+  const title=document.createElement("h3");
+  title.textContent=clue.title;
+
+  const text=document.createElement("p");
+  text.textContent=clue.text;
+
+  card.append(number,title,text);
+  grid.appendChild(card);
+ });
+
+ const revealDate="2026-11-14";
+
+ if(today>=revealDate){
+  document.getElementById("waiting").classList.add("hidden");
+  document.getElementById("reveal").classList.remove("hidden");
+ }else{
+  startCountdown();
+ }
+}
+
+function startCountdown(){
+
+ const output=document.getElementById("countdown");
+
+ function update(){
+
+  const target=new Date("2026-11-14T00:00:00+05:30");
+  const now=new Date();
+  const difference=target-now;
+
+  if(difference<=0){
+   output.textContent="The final page is ready. Refresh to reveal it.";
+   return;
+  }
+
+  const days=Math.floor(difference/86400000);
+  const hours=Math.floor(difference%86400000/3600000);
+  const minutes=Math.floor(difference%3600000/60000);
+
+  output.textContent=
+   `${days} DAYS · ${hours} HOURS · ${minutes} MINUTES TO GO`;
+ }
+
+ update();
+ setInterval(update,60000);
+}
+
+// FLOATING PARTICLES
+
+const particleContainer=document.getElementById("particles");
+
+const symbols=["✦","✧","♡","✷","·"];
+
+for(let i=0;i<35;i++){
+
+ const particle=document.createElement("span");
+ particle.className="particle";
+ particle.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+
+ particle.style.left=Math.random()*100+"%";
+ particle.style.fontSize=(10+Math.random()*18)+"px";
+ particle.style.animationDuration=(8+Math.random()*15)+"s";
+ particle.style.animationDelay=(-Math.random()*15)+"s";
+ particle.style.color=colors[Math.floor(Math.random()*colors.length)];
+
+ particleContainer.appendChild(particle);
+}
+
+// OPTIONAL: KEEP SESSION UNLOCKED IN THIS TAB
+
+if(sessionStorage.getItem("unseenUnlocked")==="yes"){
+ showExperience();
+}
+
+</script>
+
+</body>
+</html>
